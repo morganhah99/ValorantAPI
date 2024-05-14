@@ -1,4 +1,4 @@
-package com.example.valorantapi.ui
+package com.example.valorantapi.ui.agent
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
