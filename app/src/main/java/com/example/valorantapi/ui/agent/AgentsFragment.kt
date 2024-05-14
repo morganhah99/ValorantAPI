@@ -1,14 +1,13 @@
 package com.example.valorantapi.ui.agent
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.valorantapi.R
+import com.example.valorantapi.data.api.ApiResponse
 import com.example.valorantapi.databinding.FragmentAgentsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,15 +24,29 @@ class AgentsFragment : Fragment() {
         val agentViewModel = ViewModelProvider(this)[AgentViewModel::class.java]
 
 
-        agentViewModel.agentList.observe(viewLifecycleOwner) {
-            binding.rvAgentList.apply {
-                layoutManager = LinearLayoutManager(context)
-                adapter = AgentListAdapter(it.data)
+        agentViewModel.agentList.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is ApiResponse.LoadingState -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.rvAgentList.visibility = View.GONE
+                    binding.tvError.visibility = View.GONE
+                }
+                is ApiResponse.SuccessState -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.rvAgentList.visibility = View.VISIBLE
+                    binding.tvError.visibility = View.GONE
+                    binding.rvAgentList.apply {
+                        layoutManager = LinearLayoutManager(context)
+                        adapter = AgentListAdapter(response.data.data)
+                    }
+                }
+                is ApiResponse.ErrorState -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.tvError.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                }
             }
-
-            Log.d("AgentsFragment", it.data.toString())
         }
-
 
         // Inflate the layout for this fragment
         return root

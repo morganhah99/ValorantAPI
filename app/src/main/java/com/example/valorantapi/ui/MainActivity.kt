@@ -1,8 +1,9 @@
-package com.example.valorantapi
+package com.example.valorantapi.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.valorantapi.R
 import com.example.valorantapi.databinding.ActivityMainBinding
 import com.example.valorantapi.ui.agent.AgentsFragment
 import com.example.valorantapi.ui.weapon.WeaponsFragment
