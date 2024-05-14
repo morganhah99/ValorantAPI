@@ -46,6 +46,5 @@ data class DataModel(
     val role: RoleModel? = RoleModel(),
     @SerializedName("uuid")
     val uuid: String? = "",
-    @SerializedName("voiceLine")
-    val voiceLine: AnyModel? = AnyModel()
+
 )
