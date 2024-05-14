@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.valorantapi.R
+import com.example.valorantapi.databinding.FragmentAgentDetailsBinding
+import com.example.valorantapi.databinding.FragmentAgentsBinding
 
 
 /**
@@ -15,10 +17,23 @@ import com.example.valorantapi.R
  */
 class AgentDetailsFragment : Fragment() {
 
+    private lateinit var binding: FragmentAgentDetailsBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agent_details, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        binding = FragmentAgentDetailsBinding.inflate(inflater, container, false)
+
+        val root = binding.root
+
+        val image = arguments?.getString("displayIcon")
+        val name = arguments?.getString("displayName")
+        val description = arguments?.getString("description")
+
+        return root
     }
 
 }
