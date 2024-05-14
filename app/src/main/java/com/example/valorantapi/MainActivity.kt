@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.valorantapi.databinding.ActivityMainBinding
 import com.example.valorantapi.ui.AgentsFragment
-import com.example.valorantapi.ui.WeaponsFragment
+import com.example.valorantapi.ui.weapon.WeaponsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
