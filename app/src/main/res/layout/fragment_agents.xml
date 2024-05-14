@@ -10,7 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="AGENTS FRAGMENT"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:textSize="34sp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="660dp"
+        android:layout_marginTop="70dp"
+        android:id="@+id/rvAgentList"/>
+
 
 </FrameLayout>
