@@ -56,27 +56,24 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+
+    //okhttp
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    //gson
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+
     //Hilt
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-compiler:2.51.1")
-
-// Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-
-// Coroutines
-    implementation ("com.google.code.gson:gson:2.8.9")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
-
-//glide
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-
-//okhttp
-    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.6")
-    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6")
-
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
-    implementation("androidx.activity:activity-ktx:1.4.0")
 
 }

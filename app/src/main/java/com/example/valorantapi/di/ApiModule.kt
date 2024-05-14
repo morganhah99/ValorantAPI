@@ -24,7 +24,7 @@ class ApiModule {
     }
 
     @Provides
-    fun providesLoggingInterseptor() = HttpLoggingInterceptor().apply {
+    fun providesLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
