@@ -7,8 +7,8 @@ import retrofit2.http.GET
 interface ApiEndpoints {
 
     @GET(ApiDetails.AGENTS_ENDPOINT)
-    suspend fun getAgents():List<AgentModel>
+    suspend fun getAgents(): AgentModel
 
     @GET(ApiDetails.WEAPONS_ENDPOINT)
-    suspend fun getWeapons():List<WeaponModel>
+    suspend fun getWeapons(): WeaponModel
 }

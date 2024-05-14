@@ -6,8 +6,8 @@ import com.example.valorantapi.data.model.weapon.WeaponModel
 import javax.inject.Inject
 
 class ApiRepositoryImpl @Inject constructor(private val apiDetails: ApiEndpoints): ApiRepository{
-    override suspend fun getAgents(): List<AgentModel> = apiDetails.getAgents()
+    override suspend fun getAgents(): AgentModel = apiDetails.getAgents()
 
-    override suspend fun getWeapons(): List<WeaponModel> = apiDetails.getWeapons()
+    override suspend fun getWeapons(): WeaponModel = apiDetails.getWeapons()
 
 }
