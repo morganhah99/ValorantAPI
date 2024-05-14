@@ -18,13 +18,17 @@ class WeaponsFragment : Fragment() {
 
     private val weaponViewModel: WeaponsViewModel by viewModels()
 
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_weapons, container, false)
+    ): View {
+        _binding = FragmentWeaponsBinding.inflate(inflater, container, false)
+
+        val root: View = binding.root
+
+        return root
     }
 
 
