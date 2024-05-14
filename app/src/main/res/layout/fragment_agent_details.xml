@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.agent.AgentsFragment">
+    tools:context=".ui.agent.AgentDetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="AGENTS FRAGMENT"
-        android:gravity="center"
-        android:textSize="34sp"/>
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
