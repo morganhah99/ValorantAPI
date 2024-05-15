@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.valorantapi.R
 import com.example.valorantapi.data.api.ApiResponse
 import com.example.valorantapi.databinding.FragmentAgentsBinding
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -62,8 +65,20 @@ class AgentsFragment : Fragment() {
             }
         }
 
-        // Inflate the layout for this fragment
+        Firebase.analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,
+            bundleOf(
+                FirebaseAnalytics.Param.ITEM_ID to "232",
+                FirebaseAnalytics.Param.ITEM_NAME to "Number",
+                FirebaseAnalytics.Param.CONTENT_TYPE to "Dummy",
+            )
+        )
+
+//        throw RuntimeException("Test Crash")
+
         return root
+
+
+
     }
 
 

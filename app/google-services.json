@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1086027571480",
+    "project_id": "valorantapi-31194",
+    "storage_bucket": "valorantapi-31194.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086027571480:android:86b16eaa4cb1bc7c1dfe6d",
+        "android_client_info": {
+          "package_name": "com.example.valorantapi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY-r1oZ5uu5s4U9HN-EULin2y90-ru3t4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
