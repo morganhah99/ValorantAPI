@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.valorantapi.R
 import com.example.valorantapi.databinding.FragmentAgentDetailsBinding
@@ -36,6 +37,11 @@ class AgentDetailsFragment : Fragment() {
                 .into(ivAgent)
             tvRole.text = role
             tvDescription.text = description
+
+            ivBackButton.setOnClickListener {
+                view?.findNavController()?.popBackStack() //navigates back to previous fragment
+
+            }
         }
 
         return binding.root

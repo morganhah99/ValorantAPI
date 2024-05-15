@@ -8,18 +8,46 @@
     tools:context=".ui.agent.AgentDetailsFragment">
 
     <ImageView
-        android:id="@+id/ivAgent"
-        android:src="@drawable/ic_android_black_24dp"
-        android:layout_width="match_parent"
-        android:paddingTop="50dp"
-        android:layout_height="180dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/ivBackButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintBottom_toTopOf="@+id/ivAgent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:contentDescription="@string/agent_profile_picture" />
+        app:layout_constraintVertical_bias="0.225"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/ivAgent"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:contentDescription="@string/agent_profile_picture"
+        android:paddingTop="50dp"
+        android:src="@drawable/ic_android_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.219" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#CCCCCC"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRole"
+        tools:text="Description" />
 
     <TextView
         android:id="@+id/tvRole"
@@ -32,20 +60,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivAgent"
         tools:text="Char Name" />
-
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="350dp"
-        android:textColor="#CCCCCC"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRole"
-        tools:text="Description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
