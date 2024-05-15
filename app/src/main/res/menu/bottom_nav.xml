@@ -3,10 +3,15 @@
 
     <item
         android:id="@+id/agents"
-        android:title="Agents"
+        android:title="@string/agents"
         android:icon="@drawable/agent_logo"/>
     <item
         android:id="@+id/weapons"
-        android:title="Weapons"
+        android:title="@string/weapons"
         android:icon="@drawable/ic_android_black_24dp"/>
+
+    <item
+        android:id="@+id/logOut"
+        android:title="@string/log_out"
+        android:icon="@drawable/log_out"/>
 </menu>

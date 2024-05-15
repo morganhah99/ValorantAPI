@@ -8,6 +8,8 @@
     tools:context=".ui.weapon.WeaponsFragment">
 
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:paddingTop="30dp"
         android:paddingBottom="85dp"

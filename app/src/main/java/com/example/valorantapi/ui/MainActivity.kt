@@ -1,6 +1,5 @@
 package com.example.valorantapi.ui
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.agents -> navController.navigate(R.id.agentsFragment)
                 R.id.weapons -> navController.navigate(R.id.weaponsFragment)
+                R.id.logOut -> navController.navigate(R.id.logOutFragment)
                 else -> {}
 
             }

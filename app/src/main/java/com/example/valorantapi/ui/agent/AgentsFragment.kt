@@ -65,6 +65,7 @@ class AgentsFragment : Fragment() {
             }
         }
 
+        //
         Firebase.analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,
             bundleOf(
                 FirebaseAnalytics.Param.ITEM_ID to "232",

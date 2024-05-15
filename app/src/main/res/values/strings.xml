@@ -6,4 +6,7 @@
     <string name="could_not_retrieve_list">Could not retrieve list</string>
     <string name="weapon_image">Weapon Image</string>
     <string name="agent_logo">Agent Logo</string>
+    <string name="weapons">Weapons</string>
+    <string name="agents">Agents</string>
+    <string name="log_out">Log Out</string>
 </resources>
