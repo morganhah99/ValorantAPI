@@ -19,40 +19,32 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiModule {
 
     @Provides
-    fun providesGson(): Gson {
-        return Gson()
+    fun provideRetrofit(): Retrofit {
+        val gson = Gson()
+        val gsonConverterFactory = GsonConverterFactory.create(gson)
+
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
+        val okHttpClient = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+
+        return Retrofit.Builder()
+            .baseUrl(ApiDetails.BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(gsonConverterFactory)
+            .build()
     }
 
     @Provides
-    fun providesLoggingInterceptor() = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
+    fun provideApiEndpoints(retrofit: Retrofit): ApiEndpoints {
+        return retrofit.create(ApiEndpoints::class.java)
     }
 
     @Provides
-    fun providesGsonConverterFactory(
-        gson:Gson
-    ) = GsonConverterFactory.create()
-
-    @Provides
-    fun providesOkHttpClient(
-        logging:HttpLoggingInterceptor
-    ):OkHttpClient = OkHttpClient.Builder().addInterceptor(logging).build()
-
-    @Provides
-    fun providesRetrofit(
-        okHttpClient: OkHttpClient,
-        converterFactory:GsonConverterFactory
-    ):Retrofit = Retrofit.Builder()
-        .baseUrl(ApiDetails.BASE_URL)
-        .client(okHttpClient)
-        .addConverterFactory(converterFactory)
-        .build()
-
-    @Provides
-    fun apiInstance(retrofit: Retrofit):ApiEndpoints = retrofit.create(ApiEndpoints::class.java)
-
-    @Provides
-    fun providesRepository(apiEndpoints: ApiEndpoints):ApiRepository{
+    fun provideRepository(apiEndpoints: ApiEndpoints): ApiRepository {
         return ApiRepositoryImpl(apiEndpoints)
     }
 }
