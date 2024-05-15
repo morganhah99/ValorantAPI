@@ -39,7 +39,7 @@ class AgentsFragment : Fragment() {
                             findNavController().navigate(
                                 R.id.action_agentsFragment_to_agentDetailsFragment,
                                 bundleOf("displayName" to agent.displayName,
-                                    "agentImage" to agent.displayIcon,
+                                    "displayIcon" to agent.displayIcon,
                                     "description" to agent.description,
                                     "role" to agent.role?.displayName
                                 )

@@ -1,6 +1,7 @@
 package com.example.valorantapi.ui.agent
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,13 +23,15 @@ class AgentDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentAgentDetailsBinding.inflate(inflater, container, false)
-        val agentImage = arguments?.getString("displayIcon")
+        val displayIcon = arguments?.getString("displayIcon")
         val description = arguments?.getString("description")
         val role = arguments?.getString("role")
+        Log.d("AgentDetailsFragment", "Agent Image URL: $displayIcon")
+
 
         binding.apply {
-            Glide.with(binding.root)
-                .load(agentImage)
+            Glide.with(root.context)
+                .load(displayIcon)
                 .placeholder(R.drawable.ic_android_black_24dp)
                 .into(ivAgent)
             tvRole.text = role

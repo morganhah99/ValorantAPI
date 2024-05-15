@@ -10,6 +10,7 @@
         android:id="@+id/ivAgent"
         android:src="@drawable/ic_android_black_24dp"
         android:layout_width="match_parent"
+        android:paddingTop="50dp"
         android:layout_height="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
