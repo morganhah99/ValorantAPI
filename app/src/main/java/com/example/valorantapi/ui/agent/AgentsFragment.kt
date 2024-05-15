@@ -38,7 +38,12 @@ class AgentsFragment : Fragment() {
                         adapter = AgentListAdapter(response.data.data) { agent ->
                             findNavController().navigate(
                                 R.id.action_agentsFragment_to_agentDetailsFragment,
-                                bundleOf("displayName" to agent.displayName)
+                                bundleOf("displayName" to agent.displayName,
+                                    "agentImage" to agent.displayIcon,
+                                    "description" to agent.description,
+                                    "role" to agent.role?.displayName
+                                )
+
                             )
 
                         }
