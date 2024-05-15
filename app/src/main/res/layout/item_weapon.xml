@@ -12,11 +12,13 @@
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/weapon_image" />
 
     <TextView
         android:id="@+id/tvWeaponName"
         android:layout_width="0dp"
+        android:textColor="#CCCCCC"
         android:textSize="30sp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"

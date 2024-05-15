@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1A1A1A"
     tools:context=".ui.agent.AgentsFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAgentList"
-        android:paddingTop="50dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="85dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
