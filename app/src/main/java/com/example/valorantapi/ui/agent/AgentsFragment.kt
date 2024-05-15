@@ -16,7 +16,7 @@ class AgentsFragment : Fragment() {
 
     lateinit var binding: FragmentAgentsBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         binding = FragmentAgentsBinding.inflate(inflater, container, false)
         val root = binding.root
@@ -26,11 +26,6 @@ class AgentsFragment : Fragment() {
 
         agentViewModel.agentList.observe(viewLifecycleOwner) { response ->
             when (response) {
-                is ApiResponse.LoadingState -> {
-                    binding.progressBar.visibility = View.VISIBLE
-                    binding.rvAgentList.visibility = View.GONE
-                    binding.tvError.visibility = View.GONE
-                }
                 is ApiResponse.SuccessState -> {
                     binding.progressBar.visibility = View.GONE
                     binding.rvAgentList.visibility = View.VISIBLE
@@ -44,6 +39,11 @@ class AgentsFragment : Fragment() {
                     binding.progressBar.visibility = View.GONE
                     binding.tvError.visibility = View.VISIBLE
                     binding.progressBar.visibility = View.GONE
+                }
+                else -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.rvAgentList.visibility = View.GONE
+                    binding.tvError.visibility = View.GONE
                 }
             }
         }
