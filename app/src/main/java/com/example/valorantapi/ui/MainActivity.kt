@@ -1,6 +1,8 @@
 package com.example.valorantapi.ui
 
+import android.opengl.Visibility
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -37,6 +39,14 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+       navController.addOnDestinationChangedListener { _, destination, _ ->
+           if (destination.id == R.id.agentDetailsFragment) {
+               binding.bottomNavigationView.visibility = View.GONE
+           } else {
+               binding.bottomNavigationView.visibility = View.VISIBLE
+           }
+       }
 
 
     }
