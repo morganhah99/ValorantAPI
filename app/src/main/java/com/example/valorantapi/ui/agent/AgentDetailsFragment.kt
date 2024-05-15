@@ -5,20 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.valorantapi.R
 import com.example.valorantapi.databinding.FragmentAgentDetailsBinding
-import com.example.valorantapi.databinding.FragmentAgentsBinding
 
 
 
-//class AgentDetailsFragment : Fragment() {
-//
-//    private lateinit var binding: FragmentAgentDetailsBinding
-//
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//
-//
-//
-//    }
-//
-//}
+class AgentDetailsFragment : Fragment() {
+
+    private lateinit var binding: FragmentAgentDetailsBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        binding = FragmentAgentDetailsBinding.inflate(inflater, container, false)
+        val name = arguments?.getString("displayName")
+
+        binding.apply {
+            tvCharacterName.text = name
+        }
+
+        return binding.root
+
+
+    }
+
+}

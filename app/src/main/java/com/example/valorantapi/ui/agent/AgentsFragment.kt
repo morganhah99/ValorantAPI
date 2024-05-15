@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.valorantapi.R
 import com.example.valorantapi.data.api.ApiResponse
 import com.example.valorantapi.databinding.FragmentAgentsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,7 +35,13 @@ class AgentsFragment : Fragment() {
                     binding.tvError.visibility = View.GONE
                     binding.rvAgentList.apply {
                         layoutManager = LinearLayoutManager(context)
-                        adapter = AgentListAdapter(response.data.data)
+                        adapter = AgentListAdapter(response.data.data) { agent ->
+                            findNavController().navigate(
+                                R.id.action_agentsFragment_to_agentDetailsFragment,
+                                bundleOf("displayName" to agent.displayName)
+                            )
+
+                        }
                     }
                 }
                 is ApiResponse.ErrorState -> {

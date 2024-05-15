@@ -11,10 +11,11 @@ import com.example.valorantapi.data.model.agent.DataModel
 import com.example.valorantapi.databinding.AgentElementBinding
 
 class AgentListAdapter(
-    private val agentList:List<DataModel?>?
+    private val agentList:List<DataModel?>?,
+    private val onAgentClick: (DataModel) -> Unit
 ):RecyclerView.Adapter <AgentListAdapter.MyViewHolder>() {
         inner class MyViewHolder(itemView:View ):ViewHolder(itemView){
-            private val binding = AgentElementBinding.bind(itemView)
+            val binding = AgentElementBinding.bind(itemView)
 
             fun updateUI (agentItemModel: DataModel?){
                 //handle UI changes based on current state
@@ -34,18 +35,14 @@ class AgentListAdapter(
 
     }
 
-    override fun onBindViewHolder(holder: AgentListAdapter.MyViewHolder, position: Int) {
-//        if (agentList != null && position >= 0 && position < agentList.size) {
-////            holder.updateUI(agentList.get(position))
-//            val agent = agentList[position]
-//            // Update the UI with the agent data
-//            if (agent != null) {
-//                holder.updateUI(agent)
-//            }
-//        }
-
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val agentItemModel = agentList?.get(position)
 
         holder.updateUI(agentList?.get(position))
+
+        holder.binding.root.setOnClickListener {
+            agentItemModel?.let { onAgentClick(it) }
+        }
     }
 
 
