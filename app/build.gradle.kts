@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.crashlytics)
+    implementation(libs.googleid)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -95,6 +96,9 @@ dependencies {
 
     //google auth service
     implementation("com.google.android.gms:play-services-auth:21.1.1")
+
+    implementation("androidx.credentials:credentials:1.3.0-alpha04")
+    implementation("androidx.credentials:credentials-play-services-auth:1.3.0-alpha04")
 
 
 
