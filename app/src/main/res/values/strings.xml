@@ -9,4 +9,9 @@
     <string name="weapons">Weapons</string>
     <string name="agents">Agents</string>
     <string name="log_out">Log Out</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="google_login">Google Login</string>
+    <string name="valorant_logo">Valorant Logo</string>
 </resources>
