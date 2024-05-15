@@ -90,5 +90,13 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 
+    //firebase auth
+    implementation("com.google.firebase:firebase-auth:19.0.0")
+
+    //google auth service
+    implementation("com.google.android.gms:play-services-auth:21.1.1")
+
+
+
 
 }
