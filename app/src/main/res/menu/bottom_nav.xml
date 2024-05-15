@@ -4,7 +4,7 @@
     <item
         android:id="@+id/agents"
         android:title="Agents"
-        android:icon="@drawable/ic_android_black_24dp"/>
+        android:icon="@drawable/agent_logo"/>
     <item
         android:id="@+id/weapons"
         android:title="Weapons"

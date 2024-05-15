@@ -19,12 +19,12 @@
 
     <fragment
         android:id="@+id/weaponsFragment"
-        android:name="com.example.valorantapi.ui.WeaponsFragment"
+        android:name="com.example.valorantapi.ui.weapon.WeaponsFragment"
         android:label="fragment_weapons"
         tools:layout="@layout/fragment_weapons" />
     <fragment
         android:id="@+id/agentDetailsFragment"
-        android:name="com.example.valorantapi.ui.agent.AgentDetailsFragment"
+        android:name="com.example.valorantapi.ui.agent.AgentsFragment"
         android:label="fragment_agent_details"
         tools:layout="@layout/fragment_agent_details" />
 </navigation>
