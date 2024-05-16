@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LogOutFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,8 +20,6 @@ class LogOutFragment : Fragment() {
         FirebaseAuth.getInstance().signOut()
         startActivity(Intent(activity, LoginActivity::class.java)).also { activity?.finish() }
         return inflater.inflate(R.layout.fragment_log_out, container, false)
-
-
     }
 
 
