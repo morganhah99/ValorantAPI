@@ -97,8 +97,13 @@ dependencies {
     //google auth service
     implementation("com.google.android.gms:play-services-auth:21.1.1")
 
-    implementation("androidx.credentials:credentials:1.3.0-alpha04")
-    implementation("androidx.credentials:credentials-play-services-auth:1.3.0-alpha04")
+    implementation("androidx.credentials:credentials:1.2.2")
+    implementation("androidx.credentials:credentials-play-services-auth:1.2.2")
+
+    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+
+    
+
 
     //implementation("com.google.android.libraries.identity.googleid:googleid:1.3.0-alpha04")
 
