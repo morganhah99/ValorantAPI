@@ -8,6 +8,7 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import com.example.valorantapi.R
 import com.example.valorantapi.ui.MainActivity
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -46,13 +47,15 @@ class PushNotificationService: FirebaseMessagingService() {
 
         val channelId = "fcm_default_channel"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val notificationColor = ContextCompat.getColor(this, R.color.notification_color)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("Custom notification title")
+            .setSmallIcon(R.drawable._12px_valorant_logo___pink_color_version_svg)
+            .setContentTitle("")
             .setContentText(description)
             .setAutoCancel(true)
             .setSound(defaultSoundUri)
             .setContentIntent(pendingIntent)
+            .setColor(notificationColor)
 
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
