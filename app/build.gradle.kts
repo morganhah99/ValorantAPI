@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.crashlytics)
     implementation(libs.googleid)
+    implementation(libs.firebase.inappmessaging.display)
+    implementation(libs.firebase.messaging.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -102,7 +104,7 @@ dependencies {
 
     implementation("com.firebaseui:firebase-ui-auth:7.2.0")
 
-    
+
 
 
     //implementation("com.google.android.libraries.identity.googleid:googleid:1.3.0-alpha04")
