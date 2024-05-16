@@ -56,8 +56,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun isVerifiedUser() {
         auth.signInWithEmailAndPassword(
             binding.etEmail.text.toString(),
@@ -112,7 +110,6 @@ class LoginActivity : AppCompatActivity() {
 
             // Log and toast
             Log.d("TOKEN", token)
-            Toast.makeText(baseContext, "TOKEN is $token", Toast.LENGTH_SHORT).show()
         })
 
     }
@@ -129,22 +126,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+    override fun onStart() {
+        super.onStart()
+        val user = auth.currentUser
+        if (user != null) goToHomeActivity()
+    }
 
-
-
-
-override fun onStart() {
-    super.onStart()
-    val user = auth.currentUser
-    if (user != null) goToHomeActivity()
-}
-
-private fun goToHomeActivity() {
-    startActivity(
-        Intent(
-            this,
-            MainActivity::class.java
-        )
-    ).also { this@LoginActivity.finish() }
-}
+    private fun goToHomeActivity() {
+        startActivity(
+            Intent(
+                this,
+                MainActivity::class.java
+            )
+        ).also { this@LoginActivity.finish() }
+    }
 }
