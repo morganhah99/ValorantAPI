@@ -10,11 +10,12 @@ import com.example.valorantapi.data.repository.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Named
 
 
 @HiltViewModel
 class WeaponsViewModel @Inject constructor(
-    private val apiRepository: ApiRepository
+    @Named("ValorantRepository") private val valorantRepository: ApiRepository,
 ): ViewModel() {
 
     private val _weaponList = MutableLiveData<ApiResponse<WeaponModel>>()
@@ -27,7 +28,7 @@ class WeaponsViewModel @Inject constructor(
 
     private fun getWeapons() {
         viewModelScope.launch {
-            val result = apiRepository.getWeapons()
+            val result = valorantRepository.getWeapons()
 
             _weaponList.postValue(ApiResponse.SuccessState(result))
 

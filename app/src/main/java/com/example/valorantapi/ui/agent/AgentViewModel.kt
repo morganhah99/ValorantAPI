@@ -11,9 +11,12 @@ import com.example.valorantapi.data.repository.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Named
 
 @HiltViewModel
-class AgentViewModel @Inject constructor(private val repository:ApiRepository) :ViewModel(){
+class AgentViewModel @Inject constructor(
+    @Named("ValorantRepository") private val valorantRepository: ApiRepository,
+) : ViewModel() {
     private val _agentList = MutableLiveData<ApiResponse<AgentModel>>()
     val agentList: LiveData<ApiResponse<AgentModel>> = _agentList
 
@@ -25,13 +28,13 @@ class AgentViewModel @Inject constructor(private val repository:ApiRepository) :
     private fun getAllAgents() {
 
         viewModelScope.launch {
-            val allAgents = repository.getAgents()
+            val allAgents = valorantRepository.getAgents()
 
-            if(allAgents != null){
+            if (allAgents != null) {
                 _agentList.postValue(ApiResponse.SuccessState(allAgents))
             }
 
-            Log.d("AgentViewModel",allAgents.toString())
+            Log.d("AgentViewModel", allAgents.toString())
         }
 
     }
