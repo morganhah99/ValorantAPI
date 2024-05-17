@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 
-@Entity
+@Entity(tableName = "repos")
 data class Repo(
     @PrimaryKey @field:SerializedName("id") val id: Long,
     @field:SerializedName("name") val name: String,

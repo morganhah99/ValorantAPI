@@ -18,6 +18,6 @@ interface ApiEndpoints {
     suspend fun searchRepos(
         @Query("q") query: String,
         @Query("p") page: Int,
-        @Query("per_page") itemsPerPage: Int = 1
+        @Query("per_page") itemsPerPage: Int
     ): RepoSearchResponse
 }

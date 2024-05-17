@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.googleid)
     implementation(libs.firebase.inappmessaging.display)
     implementation(libs.firebase.messaging.ktx)
+    implementation(libs.androidx.paging.common.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -108,6 +109,10 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-paging:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    implementation("androidx.paging:paging-runtime:2.6.1")
+
 
 
 
