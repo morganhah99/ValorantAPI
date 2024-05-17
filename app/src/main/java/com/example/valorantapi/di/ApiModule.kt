@@ -14,25 +14,47 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class ApiModule {
 
     @Provides
-    @Named("ValorantRetrofit")
-    fun provideValorantRetrofit(): Retrofit {
-        val gson = Gson()
-        val gsonConverterFactory = GsonConverterFactory.create(gson)
+    @Singleton
+    fun provideGson(): Gson {
+        return Gson()
+    }
 
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
+    @Provides
+    @Singleton
+    fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory {
+        return GsonConverterFactory.create(gson)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
+    }
 
-        val okHttpClient = OkHttpClient.Builder()
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+        return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
+    }
 
+    @Provides
+    @Named("ValorantRetrofit")
+    @Singleton
+    fun provideValorantRetrofit(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(ApiDetails.BASE_URL)
             .client(okHttpClient)
@@ -42,18 +64,11 @@ class ApiModule {
 
     @Provides
     @Named("GitHubRetrofit")
-    fun provideGitHubRetrofit(): Retrofit {
-        val gson = Gson()
-        val gsonConverterFactory = GsonConverterFactory.create(gson)
-
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
-
-        val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()
-
+    @Singleton
+    fun provideGitHubRetrofit(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(ApiDetails.GITHUB_BASE_URL)
             .client(okHttpClient)
